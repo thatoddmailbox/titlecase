@@ -40,6 +40,17 @@ func TestExceptions(t *testing.T) {
 	individualTest(t, "THE TEST TITLE", "The Test Title")
 }
 
+func TestSeparators(t *testing.T) {
+	// hyphenation is tricky
+	// in general, you're supposed to leave the word after the hyphen lowercase
+	// however, this was originally designed for class names, which should have the next word capitalized
+	individualTest(t, "trans-siberian pipeline", "Trans-Siberian Pipeline")
+	individualTest(t, "INTRO-COMPUT SCI/PROG IN JAVA", "Intro-Comput Sci/Prog in Java")
+
+	individualTest(t, "ADVANCED PROGRAMMING&HEXING", "Advanced Programming&Hexing")
+	individualTest(t, "INT'L AFFAIR", "Int'l Affair")
+}
+
 func TestReadme(t *testing.T) {
 	individualTest(t, "INTRODUCTION TO PROGRAMMING", "Introduction to Programming")
 	individualTest(t, "some cool book", "Some Cool Book")

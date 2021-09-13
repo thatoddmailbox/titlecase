@@ -5,7 +5,17 @@ import (
 	"unicode"
 )
 
+var stopwords = map[string]bool{
+	"a":   true,
+	"an":  true,
+	"the": true,
+}
+
 func titleWord(word string) string {
+	if stopwords[word] {
+		return word
+	}
+
 	return strings.Title(word)
 }
 

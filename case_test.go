@@ -20,4 +20,7 @@ func individualTest(t *testing.T, input string, expected string) {
 
 func TestBasic(t *testing.T) {
 	individualTest(t, "word", "Word")
+	individualTest(t, "WORD", "Word")
+	individualTest(t, "interesting phrase", "Interesting Phrase")
+	individualTest(t, "testing yay", "Testing Yay")
 }

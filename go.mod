@@ -1,3 +1,3 @@
 module github.com/thatoddmailbox/titlecase
 
-go 1.16
+go 1.13

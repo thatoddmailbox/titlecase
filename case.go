@@ -32,5 +32,5 @@ func Title(s string) string {
 		result += strings.Title(word)
 	}
 
-	return strings.Title(s)
+	return result
 }

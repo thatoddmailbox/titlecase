@@ -39,3 +39,9 @@ func TestExceptions(t *testing.T) {
 	individualTest(t, "a weird story", "A Weird Story")
 	individualTest(t, "THE TEST TITLE", "The Test Title")
 }
+
+func TestReadme(t *testing.T) {
+	individualTest(t, "INTRODUCTION TO PROGRAMMING", "Introduction to Programming")
+	individualTest(t, "some cool book", "Some Cool Book")
+	individualTest(t, "an interesting story", "An Interesting Story")
+}

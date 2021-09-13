@@ -37,6 +37,10 @@ func titleWord(word string) string {
 	return strings.Title(word)
 }
 
+func isSeparator(r rune) bool {
+	return unicode.IsSpace(r)
+}
+
 // Title converts the input string into title case.
 func Title(s string) string {
 	s = strings.ToLower(s)
@@ -44,7 +48,7 @@ func Title(s string) string {
 	result := ""
 	word := ""
 	for _, nextRune := range s {
-		if unicode.IsSpace(nextRune) {
+		if isSeparator(nextRune) {
 			// we hit a separator, we have a complete word
 			// decide what to do to the word and append it
 			result += titleWord(word)

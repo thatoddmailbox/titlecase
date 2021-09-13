@@ -38,6 +38,24 @@ func titleWord(word string, wordIndex int) string {
 }
 
 func isSeparator(r rune) bool {
+	// based off of the go strings package's implementation of strings.Title
+
+	if r <= 0x7F {
+		switch {
+		case '0' <= r && r <= '9':
+			return false
+		case 'a' <= r && r <= 'z':
+			return false
+		case 'A' <= r && r <= 'Z':
+			return false
+		case r == '_':
+			return false
+		case r == '\'':
+			return false
+		}
+		return true
+	}
+
 	return unicode.IsSpace(r)
 }
 

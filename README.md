@@ -10,3 +10,5 @@ titlecase.Title("INTRODUCTION TO PROGRAMMING") // => "Introduction to Programmin
 titlecase.Title("some cool book") // => "Some Cool Book"
 titlecase.Title("an interesting story") // => "An Interesting Story"
 ```
+
+For handling of weirder cases, see the [unit test file](./case_test.go).

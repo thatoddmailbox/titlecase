@@ -33,3 +33,9 @@ func TestBasic(t *testing.T) {
 
 	individualTest(t, "INTRO TO PSYCHOLOGY", "Intro to Psychology")
 }
+
+func TestExceptions(t *testing.T) {
+	// these start with a stopword, but it's capitalized anyways
+	individualTest(t, "a weird story", "A Weird Story")
+	individualTest(t, "THE TEST TITLE", "The Test Title")
+}

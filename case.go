@@ -7,6 +7,8 @@ import (
 
 // Title converts the input string into title case.
 func Title(s string) string {
+	s = strings.ToLower(s)
+
 	result := ""
 	word := ""
 	for _, nextRune := range s {

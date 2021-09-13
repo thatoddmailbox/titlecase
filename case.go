@@ -5,6 +5,10 @@ import (
 	"unicode"
 )
 
+func titleWord(word string) string {
+	return strings.Title(word)
+}
+
 // Title converts the input string into title case.
 func Title(s string) string {
 	s = strings.ToLower(s)
@@ -15,7 +19,7 @@ func Title(s string) string {
 		if unicode.IsSpace(nextRune) {
 			// we hit a separator, we have a complete word
 			// decide what to do to the word and append it
-			result += strings.Title(word)
+			result += titleWord(word)
 
 			// append this separator to the result
 			result += string(nextRune)
@@ -29,7 +33,7 @@ func Title(s string) string {
 		word += string(nextRune)
 	}
 	if len(word) != 0 {
-		result += strings.Title(word)
+		result += titleWord(word)
 	}
 
 	return result

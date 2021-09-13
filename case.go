@@ -3,6 +3,7 @@ package titlecase
 import (
 	"strings"
 	"unicode"
+	"unicode/utf8"
 )
 
 var stopwords = map[string]bool{
@@ -34,7 +35,8 @@ func titleWord(word string, wordIndex int) string {
 		return word
 	}
 
-	return strings.Title(word)
+	firstRune, size := utf8.DecodeRuneInString(word)
+	return string(unicode.ToUpper(firstRune)) + word[size:]
 }
 
 func isSeparator(r rune) bool {

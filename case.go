@@ -29,8 +29,8 @@ var stopwords = map[string]bool{
 	"yet":  true,
 }
 
-func titleWord(word string) string {
-	if stopwords[word] {
+func titleWord(word string, wordIndex int) string {
+	if stopwords[word] && wordIndex != 0 {
 		return word
 	}
 
@@ -47,17 +47,19 @@ func Title(s string) string {
 
 	result := ""
 	word := ""
+	wordIndex := 0
 	for _, nextRune := range s {
 		if isSeparator(nextRune) {
 			// we hit a separator, we have a complete word
 			// decide what to do to the word and append it
-			result += titleWord(word)
+			result += titleWord(word, wordIndex)
 
 			// append this separator to the result
 			result += string(nextRune)
 
 			// reset the word
 			word = ""
+			wordIndex++
 
 			continue
 		}
@@ -65,7 +67,7 @@ func Title(s string) string {
 		word += string(nextRune)
 	}
 	if len(word) != 0 {
-		result += titleWord(word)
+		result += titleWord(word, wordIndex)
 	}
 
 	return result
